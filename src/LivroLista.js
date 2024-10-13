@@ -61,7 +61,6 @@ function LivroLista() {
                         <th>Resumo</th>
                         <th>Editora</th>
                         <th>Autores</th>
-                        <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
