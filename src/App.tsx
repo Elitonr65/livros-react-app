@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import LivroLista from './LivroLista';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import LivroDados from './LivroDados';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav className='navbar navbar-expand-lg navbar-dark bg-dark mb-4'>
+        <div className='container-fluid'>
+          <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+            <span className='navbar-toggler-icon'></span>
+          </button>
+
+          <div className='collapse navbar-collapse' id='navbarNav'>
+            <ul className='navbar-nav'>
+              <li className='nav-item'>
+                <Link className='nav-link text-white' to={'/'}>Catálogo</Link>
+              </li>
+              <li className='nav-item'>
+                <Link className='nav-link text-white' to="/dados">Novo</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<LivroLista />} />
+        <Route path='/dados' element={<LivroDados />} />
+      </Routes>
+
+    </Router>
+
+
   );
-}
+};
 
 export default App;
